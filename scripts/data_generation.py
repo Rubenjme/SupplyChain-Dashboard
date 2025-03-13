@@ -18,6 +18,30 @@ def random_date(start, end):
 start_date = datetime(2023, 1, 1)
 end_date = datetime(2023, 12, 31)
 
+# Genero los datos de forma aleatoria
+data = []
+for i in range(1, num_registros+1):
+    order_date = random_date(start_date, end_date)
+    lead_time = random.randint(5, 30)
+    delivery_date = order_date + timedelta(days=lead_time)
+    on_time = random.choice(["Sí", "No"])
+    quality_score = round(random.uniform(7.0, 10.0), 1)
+    cost = round(random.uniform(1000, 10000), 2)
+    data.append({
+        "OrderID": i,                                           # ID del pedido
+        "SupplierID": f"S{random.randint(1,10)}",               # ID del proveedor
+        "PartNumber": f"P{random.randint(100,999)}",            # PartNumber
+        "OrderDate": order_date.strftime("%Y-%m-%d"),           # Fecha del pedido (YYYY-MM-DD)
+        "DeliveryDate": delivery_date.strftime("%Y-%m-%d"),     # Fecha de entrega (YYYY-MM-DD)
+        "OnTimeDelivery": on_time,                              # ¿Entrega a tiempo? (Sí/No)
+        "LeadTime": lead_time,                                  # Tiempo de entrega (días)
+        "QualityScore": quality_score,                          # Calidad (7.0 - 10.0)
+        "Cost": cost                                            # Coste del pedido de compra ($)
+    })
 
-order_date = random_date(start_date, end_date)
-print(order_date)
+
+df = pd.DataFrame(data) # Creo un DataFrame con los datos generados
+
+csv_path = os.path.join(data_dir, 'supply_chain_data.csv')  # Ruta al archivo CSV de datos generados (data/supply_chain_data.csv)
+df.to_csv(csv_path, index=False)                            # Guardo el DataFrame en un archivo CSV
+print(f"Datos generados y guardados en {csv_path}")         # Imprimo la ruta del archivo generado como referencia
