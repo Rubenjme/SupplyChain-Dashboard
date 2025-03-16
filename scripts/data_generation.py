@@ -27,8 +27,8 @@ for i in range(1, num_registros+1):
     lead_time = int(np.clip(np.random.normal(8, 7), 3, 30))             #  Distribución normal para el lead time (media=8, std=7), acotado entre 3 y 30
     delivery_date = order_date + timedelta(days=lead_time)
     on_time = np.random.choice(["Sí", "No"], p=[0.8, 0.2])              # OnTimeDelivery con probabilidad 80% "Sí" y 20% "No"
-    quality_score = float(np.clip(np.random.normal(4, 1.2), 1, 5))      # Calidad con distribución normal (media=4, std=1.2), acotado entre 1 y 5
-    cost = float(np.clip(np.random.normal(5000, 2000), 500, 20000))     # Coste con distribución normal (media=5000, std=2000), acotado entre 500 y 20000
+    quality_score = float(np.clip(np.random.normal(4, 2), 1, 5))      # Calidad con distribución normal (media=4, std=2), acotado entre 1 y 5
+    cost = float(np.clip(np.random.normal(7500, 5000), 500, 20000))     # Coste con distribución normal (media=7500, std=5000), acotado entre 500 y 20000
     
     data.append({
         "OrderID": i,                                           # ID del pedido
