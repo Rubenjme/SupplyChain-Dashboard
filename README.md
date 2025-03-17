@@ -1,7 +1,7 @@
 # Supply Chain Dashboard - Simulation and KPI Analysis
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/2879c291-0249-4c1f-8c91-23bf855b675c">
+    <img src="https://github.com/user-attachments/assets/c1aafb27-d0b8-4d3b-91cd-8914ec4332ea">
 </div>
 
 ## Descripción del proyecto
